@@ -48,12 +48,76 @@ const t = ()=>{
 //  função que chama outra função
 //  Uma função, ao ser chamada, chama outra função que executa uma tarefa
 function callb(func){
+    console.log('Antes de executar callback');
+    
     func()
+    console.log('Depois de executar callback');
 }
 
-callb(
-    () => {
-        console.log('Testando chamada de volta');
-})
+// callb(
+//     () => {
+//         console.log('Testando chamada de volta');
+// })
 
-// 4. 
+// 4. CONSTRUTORES(constructor) e Classes(Class)
+
+class Person2{
+    constructor(name, age){
+        this.name = name
+        this.age = age
+    }
+}
+
+function Person(name, age) {
+    this.name = name
+    this.age = age
+}
+
+var mat = new Person('Matheus', 30)
+var lui = new Person2()
+// console.log(mat);
+// console.log(lui);
+
+//5. PROTOTYPE
+/*
+    prototype chain é a herança do JS. O objeto criado com base em um construtor
+    herda os métodos e funcionalidades
+ */
+
+// 6. Type conversion e Type coersion
+
+// 7. Transformar string <-> number
+// let num = 123
+// console.log(typeof(String(num)));
+// let st = 'asdw'
+// console.log(typeof(Number(st)));
+
+// 8. Casas decimais
+// let num = 123123213.123123
+// console.log(num.toFixed(2))
+
+// 9. minúsculas e maiúsculas
+// let test = 'MatheusW'
+// console.log(test.toLowerCase());
+// console.log(test.toUpperCase());
+
+// 10. Split(), Join() e encontrando palavras (includes(), é case sensitive)
+// let txt = 'Alo madeureira, aquele abraço'
+// txtArr = txt.split(' ')
+// var under = txtArr.join('_')
+// console.log(under);
+// console.log(txt.includes('Alo'));
+
+// 11. Criando array com New Array()
+// let arr = new Array(3)
+// console.log(arr.length);
+// let word = "texto"
+// let arr = word.split('')
+// let arr2 = Array.from(word)
+// console.log(arr);
+// console.log(arr2);
+
+// 12. manipulando arrays
+let techs = ['html', 'css', 'JS']
+techs.push('C#')
+console.log(techs);
