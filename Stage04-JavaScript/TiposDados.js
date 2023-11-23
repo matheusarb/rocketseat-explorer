@@ -80,7 +80,8 @@ console.log(arr[3].nome);
         let - escopo local
         const - 
 */
-//Hoisting (SÓ acontece com VAR): joga todas as variáveis globais para o início. Elas sempre existirão como undefined até receberem o valor
+
+// 7. Hoisting (SÓ acontece com VAR): joga todas as variáveis globais para o início. Elas sempre existirão como undefined até receberem o valor
 
 // console.log(t1);
 var t1 = 'hello'
