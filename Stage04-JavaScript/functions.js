@@ -120,4 +120,12 @@ var lui = new Person2()
 // 12. manipulando arrays
 let techs = ['html', 'css', 'JS']
 techs.push('C#')
+techs.unshift('.NET')
+techs.pop()
+techs.shift()
+var alguns = [techs[0], techs[2]]
+console.log(techs.indexOf('css'));
+// remover um ou mais:
+techs.splice(1,2) 
 console.log(techs);
+console.log(alguns);
