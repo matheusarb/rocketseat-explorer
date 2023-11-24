@@ -57,4 +57,37 @@ let b = "1"
         Infinity
         -Infinity
  */
-console.log(true ? true : false);
+// console.log(true ? true : false);
+
+function calculator(num1, num2, operator) {
+    resultado = 0
+    // if (operator == null || operator == 0){
+    //     throw new Error("Operador é obrigatório!!")
+    // }
+
+    switch (operator) {
+        case '+':
+            resultado = num1 + num2;
+            break;
+        case '-':
+            resultado = num1 - num2;
+            break;
+        case '*':
+            resultado = num1 * num2;
+            break;
+        case '/':
+            resultado = num1 / num2;
+            break;
+        default:
+            console.log("Operação inválida.");
+    }
+    return console.log(`Resultado de ${num1} ${operator} ${num2} é ${resultado}`);
+}
+
+// calculator(2, 3)
+// try{
+//     calculator(2, 3)
+// } catch(e){
+//     console.log(e);
+// }
+// calculator(2, 3, '*')
