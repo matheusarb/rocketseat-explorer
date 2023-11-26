@@ -23,28 +23,38 @@
 //     }
 // }
 
-const randomNum = Math.round(Math.random() * 10)
 const inputNumber = document.querySelector("#inputNumber");
 const msgAcerto = document.querySelector(".screen2 h2")
-const div1 = document.querySelector(".screen1")
-const div2 = document.querySelector(".screen2")
+const screen1 = document.querySelector(".screen1")
+const screen2 = document.querySelector(".screen2")
+const btnTry = document.querySelector("#btnTry");
+const btnRestart = document.querySelector("#btnRestart");
 let tentativas = 0
 
-function handleClick(event) {
-    event.preventDefault()
-
+function handleTryClick(event) {
+    event.preventDefault() //não faça o padrão/não envie o formulário
+    const randomNum = Math.round(Math.random() * 10)
     tentativas++
-
+    console.log(inputNumber.value);
+    console.log(randomNum);
+    
+    if (Number(inputNumber.value) < 0) {
+        inputNumber.value = Math.abs(inputNumber.value)
+    }
+    
     console.log(inputNumber.value);
     console.log(randomNum);
 
     if (Number(inputNumber.value) == randomNum) {
-        div1.classList.add("hide")
-        div2.classList.remove("hide")
+        screen1.classList.add("hide")
+        screen2.classList.remove("hide")
         msgAcerto.innerText = `Acertou em ${tentativas} vezes`
-        console.log(`Acertou em ${tentativas} tentativas`);
-    } else {
-        
-        
     }
 }
+
+btnTry.addEventListener("click", handleTryClick)
+btnRestart.addEventListener("click", () => {
+    screen2.classList.add("hide")
+    screen1.classList.remove("hide")
+})
+
