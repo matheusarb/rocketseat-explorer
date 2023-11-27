@@ -1,3 +1,4 @@
+// Variáveis
 const inputNumber = document.querySelector("#inputNumber");
 const msgAcerto = document.querySelector(".screen2 h2")
 const screen1 = document.querySelector(".screen1")
@@ -7,6 +8,7 @@ const btnRestart = document.querySelector("#btnRestart");
 const msgError = document.querySelector(".error")
 let tentativas = 0
 
+// funções callback
 function handleTryClick(event) {
     event.preventDefault() //não faça o padrão/não envie o formulário
     const randomNum = Math.round(Math.random() * 10)
@@ -28,13 +30,23 @@ function handleTryClick(event) {
         msgError.classList.remove("hide")
     }
 }
-
-btnTry.addEventListener("click", handleTryClick)
-btnRestart.addEventListener("click", () => {
-    screen2.classList.add("hide")
-    screen1.classList.remove("hide")
-    msgError.classList.add("hide")
+function handleReset() {
+    toogleScreen()
     tentativas = 0
     console.clear()
-})
+}
+function toogleScreen() {
+    // toggle = Onde estiver com hide ele tira e onde não estiver ele coloca
+    screen2.classList.toggle("hide")
+    screen1.classList.toggle("hide")
+    msgError.classList.toggle("hide")
+}
 
+// Eventos (A de reset foi anônima)
+btnTry.addEventListener("click", handleTryClick)
+btnRestart.addEventListener("click", handleReset)
+document.addEventListener("keypress", (e) => {
+    if(e.key == "Enter" && screen1.classList.contains("hide")) {
+        handleReset()
+    }
+})
