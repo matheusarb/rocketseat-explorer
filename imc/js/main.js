@@ -2,10 +2,11 @@ import { Modal } from "./modal.js";
 import { AlertError } from "./alert-error.js";
 import { notANumber, imcCalc } from "./utils.js";
 
+export const inputWeight = document.querySelector("#weight");
+export const inputHeight = document.querySelector("#height");
 const form = document.querySelector("form");
-const inputWeight = document.querySelector("#weight");
-const inputHeight = document.querySelector("#height");
 
+AlertError.closeAlertErrorWhileTyping();
 form.onsubmit = (event) => {
     event.preventDefault();
     

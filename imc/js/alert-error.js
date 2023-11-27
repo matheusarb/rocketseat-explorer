@@ -1,4 +1,5 @@
 //fazer como object literal
+import { inputWeight, inputHeight } from "./main.js";
 
 export const AlertError = {
     element: document.querySelector(".alert-error"),
@@ -7,5 +8,10 @@ export const AlertError = {
     },
     close() {
         AlertError.element.classList.remove("open");
+    },
+    closeAlertErrorWhileTyping() {
+        window.addEventListener("input", () => {
+            AlertError.close()
+        })
     }
 }
