@@ -16,24 +16,30 @@
   --bd-input: rgba(73, 80, 87, 0.3);
   --tt-placeholder: rgba(73, 80, 87, 0.5);
   
-  --bg-input: #DCE2E9
+  --bg-input: #DCE2E9;
   --tt-button: white;
   --bg-button: #02799D;
+  --bg-button-hover: #064e64;
 
   --bg-error: #F03E3E;
-  --tt-error: white
+  --tt-error: white;
 }
 
+
 body {
-  background-color: #040924;
-  font-size: 1.6rem;
-  font-family: 'Roboto',sans-serif;
+    background-color: #040924;
+    font-family: 'Roboto',sans-serif;
+}
+
+body, input, button {
+    font-size: 1.6rem;
+    line-height: 2rem;
 }
 
 .container {
-  display: grid;
-  height: 100vh;
-  place-content: center;
+    display: grid;
+    height: 100vh;
+    place-content: center;
 }
 
 .card {
@@ -48,6 +54,10 @@ body {
     font-size: 3.2rem;
     line-height: 4rem;
     color: var(--tt-heading);
+}
+
+form {
+    width: 30rem;
 }
 
 form h1 {
@@ -78,7 +88,7 @@ form input:focus {
     margin-top: 1.6rem;
 }
 
-button {
+form button {
     margin-top: 3.2rem;
     padding: 1.6rem;
     width: 100%;
@@ -93,6 +103,68 @@ button {
     justify-content: center;
     
     font-weight: bold;
-    font-size: 1.6rem;
-    line-height: 2rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: var(--bg-button-hover);
+}
+
+/* modal */
+.modal-wrapper.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-wrapper {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.70);
+    
+    display: grid;
+    place-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    position: relative;
+}
+
+.modal button {
+    background: none;
+    border: none;
+
+    position: absolute;
+    top: 1.8rem;
+    right: 1.8rem;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+.modal button:hover {
+    transform: scale(1.1);
+}
+
+
+/*alert-error*/
+.alert-error open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.alert-error {
+    position: absolute;
+    background: var(--bg-error);
+    width: 100%;
+    text-align: center;
+    color: var(--tt-error);
+    font-weight: bold;
+    padding: 0 .4rem;
+
+    visibility: hidden;
+    opacity: 0;
 }
