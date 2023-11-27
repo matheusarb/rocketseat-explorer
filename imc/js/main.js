@@ -6,7 +6,10 @@ export const inputWeight = document.querySelector("#weight");
 export const inputHeight = document.querySelector("#height");
 const form = document.querySelector("form");
 
-AlertError.closeAlertErrorWhileTyping();
+// AlertError.closeAlertErrorWhileTyping();
+inputHeight.oninput = () => AlertError.close();
+inputWeight.oninput = () => AlertError.close();
+
 form.onsubmit = (event) => {
     event.preventDefault();
     
