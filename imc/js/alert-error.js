@@ -1,12 +1,11 @@
 //fazer como object literal
 
-export const alertError = {
+export const AlertError = {
     element: document.querySelector(".alert-error"),
     open() {
-        alertError.element.classList.add("open")
-        return;
+        AlertError.element.classList.add("open");
     },
     close() {
-        alertError.element.classList.remove("open")
+        AlertError.element.classList.remove("open");
     }
 }
