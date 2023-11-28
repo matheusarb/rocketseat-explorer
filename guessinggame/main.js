@@ -11,6 +11,7 @@ let tentativas = 0
 // funções callback
 function handleTryClick(event) {
     event.preventDefault() //não faça o padrão/não envie o formulário
+    
     let randomNum = Math.round(Math.random() * 10)
     tentativas++
     console.log("tentativas = "+tentativas);
