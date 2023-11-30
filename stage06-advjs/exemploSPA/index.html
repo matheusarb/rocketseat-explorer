@@ -12,7 +12,11 @@
         <a href="/contacts" onclick="route()"">Contatos</a>
         <a href="/error" onclick="route()"">404-Error</a>
     </nav>
+
+    <div id="app"></div>
+
     <script>
+        fetch('')
         const routes = {
             "/": "index.html",
             "/about": "/pages/about.html",
@@ -30,11 +34,21 @@
         }
 
         function handle() {
-            // const pathName = window.location.pathname;
             //destructuring
-            const { pathname } = window.location
-            console.log(pathname);
+            const { pathname } = window.location;
+            const route = pathname || routes["/error"]
+            
+            console.log("antes do fetch");
+            
+            fetch(route)
+             .then(data => console.log(data.text))
+             .then(html => {
+                document.querySelector("#app").innerHTML = html
+             })
+            
+            console.log("depois do fetch");
         }
+        handle()
     </script>
 </body>
 </html>
