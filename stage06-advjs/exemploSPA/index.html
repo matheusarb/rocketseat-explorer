@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPA</title>
+    <!-- <base href="/stage06-advjs/exemploSPA"> -->
+    <!-- <base href="http://127.0.0.1:5500/stage06-advjs/exemploSPA/"> -->
 </head>
 <body>
     <nav>
@@ -18,9 +20,9 @@
     <script>
         fetch('')
         const routes = {
-            "/": "index.html",
-            "/about": "/pages/about.html",
+            "/": "/pages/home.html",
             "/contacts": "/pages/contacts.html",
+            "/about": "/pages/about.html",
             "/error": "/pages/error.html"
         }
 
@@ -36,18 +38,15 @@
         function handle() {
             //destructuring
             const { pathname } = window.location;
-            const route = pathname || routes["/error"]
-            
-            console.log("antes do fetch");
-            
+            const route = routes[pathname] || routes["/error"]        
+           
             fetch(route)
-             .then(data => console.log(data.text))
+             .then(data => data.text())
              .then(html => {
                 document.querySelector("#app").innerHTML = html
              })
-            
-            console.log("depois do fetch");
         }
+
         handle()
     </script>
 </body>
